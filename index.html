@@ -408,7 +408,7 @@ const work = [
     teaser: "Moved heavy dashboard queries off the production database.",
     details: ["Built <b>data warehouse infrastructure</b> using <b>Kafka and Debezium change data capture</b>. Changes in the primary database flow into a <b>separate analytics store</b>, handling <b>5K+ events/sec at peak</b> and taking heavy dashboard queries off production."],
     tags: ["Kafka", "Debezium", "PostgreSQL", "Python"],
-    links: [{ label: "View HLD", hld: "puc", filled: true }, { label: "GitHub", href: "https://github.com/AmolGode/cdc-warehouse-puc" }] },
+    links: [{ label: "View HLD", hld: "puc", filled: true }, { label: "PUC GitHub", href: "https://github.com/AmolGode/cdc-warehouse-puc" }] },
   { metric: "7K+ a day", title: "Notification system",
     teaser: "Appointment reminders and treatment alerts for oncology patients.",
     details: ["Built a <b>Celery and Redis</b> notification system with <b>priority queue routing</b> across <b>FCM push, email and SMS</b>, at <b>7K+ notifications a day</b>.", "Used the <b>Observer pattern</b> to decouple dispatch, so a new channel is a new observer class."],
