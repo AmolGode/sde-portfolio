@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Amol Gode | Software Engineer</title>
-<meta name="description" content="Software Engineer building distributed systems in Python, Django and Go. Kafka pipelines, notification systems, eKYC and AI workflows.">
+<meta name="description" content="Software Engineer designing and shipping distributed systems in Python, Django and Go. Kafka pipelines, notification systems, eKYC and AI workflows.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231A73E8'/%3E%3Ctext x='50' y='66' font-size='46' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'%3EAG%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,9 +64,9 @@ section{margin-top:72px}
 .sec-head p{color:var(--muted);margin-top:8px;max-width:64ch}
 
 /* hero */
-.hero-top{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:center}
+.hero-top{container-type:inline-size;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:center}
 .hero h2{font-size:clamp(32px,4.2vw,54px);font-weight:700;letter-spacing:-.02em}
-.hero .lead{margin-top:18px;font-size:19px;color:#3C4043;max-width:60ch}
+.hero .lead{margin-top:18px;font-size:clamp(16px,1.85cqw,19px);color:#3C4043;max-width:60ch}
 .stack-card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow-1);padding:24px}
 .stack-card h3{font-size:18px;font-weight:600;margin-bottom:14px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -187,6 +187,11 @@ dialog::backdrop{background:rgba(32,33,36,.6)}
 .lb-body{padding:16px;max-height:80vh;overflow:auto;text-align:center}
 .lb-body img{max-width:100%;height:auto;border-radius:12px}
 
+.cert{width:100%;border:0;text-align:left;font-family:inherit;font-size:13.5px;font-weight:500;line-height:1.35;cursor:pointer}
+.cert-link{display:inline-flex;align-items:center;gap:6px;margin-top:4px}
+.cert-link svg{width:15px;height:15px;flex:none}
+.cert:hover{background:#D2E3FC}
+#docFrame{width:100%;height:min(76vh,760px);border:0;border-radius:12px;background:var(--surface-2)}
 /* rich tabs */
 [hidden]{display:none!important}
 .hero .lead b{color:var(--text);font-weight:600}
@@ -259,7 +264,7 @@ dialog::backdrop{background:rgba(32,33,36,.6)}
     <a href="#depth">DSA and design</a>
     <a href="#contact">Contact</a>
   </nav>
-  <a class="cert push" id="cert" href="https://drive.google.com/file/d/1pjx0T1hpeb5wdRdvVzwnwutD-NZL7fnF/view?usp=sharing" target="_blank" rel="noopener"></a>
+  <button class="cert push" id="cert" type="button" data-doc="cert"></button>
 </aside>
 
 <main>
@@ -268,10 +273,10 @@ dialog::backdrop{background:rgba(32,33,36,.6)}
 <header class="hero" id="top">
   <div class="hero-top">
     <div>
-    <h2>Software Engineer building distributed systems that hold up under load.</h2>
-    <p class="lead">4+ years in <b>Python and Django</b> on Patient Support Programs for pharma. I design the <b>pipelines, notification systems and identity flows</b> behind them, and I practice <b>DSA and system design</b> on the side.</p>
+      <h2>Software Engineer designing and shipping distributed systems at scale.</h2>
+    <p class="lead">4+ years designing and owning <b>production-grade</b> software systems across healthcare platforms. I lead <b>HLD</b> and <b>LLD</b>, design scalable backend architectures, and apply <b>SOLID</b> principles in production.</p>
       <div class="cta">
-        <a class="btn filled" href="https://drive.google.com/uc?export=download&id=1wxsd0DRkB719KDPZ3ALgQgDKIZ7Y7tNL" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>Download resume</a>
+        <button class="btn filled" type="button" data-doc="resume"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>View resume</button>
         <button class="btn filled intro" id="introBtn" type="button" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor"/></svg>Watch intro video</button>
       </div>
     </div>
@@ -347,6 +352,18 @@ dialog::backdrop{background:rgba(32,33,36,.6)}
 </div>
 </main>
 </div>
+
+<dialog id="docModal" aria-labelledby="dmTitle">
+  <div class="lb-head">
+    <h3 id="dmTitle">Document</h3>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
+      <a id="dmDownload" class="btn filled" href="#" hidden>Download</a>
+      <a id="dmOpen" class="btn" href="#" target="_blank" rel="noopener">Open in Drive</a>
+      <button class="btn" id="dmClose" type="button">Close</button>
+    </div>
+  </div>
+  <div class="lb-body"><iframe id="docFrame" title="Document preview"></iframe></div>
+</dialog>
 
 <dialog id="videoModal" aria-labelledby="vmTitle">
   <div class="lb-head">
@@ -689,9 +706,9 @@ document.getElementById("plinks").innerHTML = `
   <a class="plink" href="https://www.linkedin.com/in/amol-gode-26ba8321a/" target="_blank" rel="noopener">${icon("LinkedIn",26)}<span><b>LinkedIn</b><small>amol-gode</small></span></a>
   <a class="plink" href="https://leetcode.com/u/17amolgode" target="_blank" rel="noopener">${icon("LeetCode",26)}<span><b>LeetCode</b><small>250+ solved</small></span></a>
   <a class="plink" href="https://www.geeksforgeeks.org/profile/17amolgode" target="_blank" rel="noopener">${icon("GeeksforGeeks",26)}<span><b>GeeksforGeeks</b><small>600+ solved</small></span></a>`;
-document.getElementById("cert").innerHTML = `${icon("Claude API",24)}<span>Claude Certified Architect, Foundations. Anthropic.<br><u>View certificate</u></span>`;
+document.getElementById("cert").innerHTML = `${icon("Claude API",24)}<span>Claude Certified Architect, Foundations. Anthropic.<br><span class="cert-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><u>Certificate</u></span></span>`;
 document.getElementById("heroStack").innerHTML = ["Python","Django","Go","PostgreSQL","Redis","Kafka","Celery","Docker","Prometheus","Grafana","React","Claude API","AWS"].map(tech).join("");
-document.getElementById("footActs").innerHTML = `<a class="btn filled" href="tel:+918830784757">+91 8830784757</a><a class="btn" href="https://drive.google.com/uc?export=download&id=1wxsd0DRkB719KDPZ3ALgQgDKIZ7Y7tNL" target="_blank" rel="noopener">Resume</a><a class="btn" href="mailto:contacting.amol@gmail.com">contacting.amol@gmail.com</a><a class="btn" href="https://www.linkedin.com/in/amol-gode-26ba8321a/" target="_blank" rel="noopener">${icon("LinkedIn",16)}LinkedIn</a><a class="btn" href="https://github.com/AmolGode" target="_blank" rel="noopener">${icon("GitHub",16)}GitHub</a>`;
+document.getElementById("footActs").innerHTML = `<a class="btn filled" href="tel:+918830784757">+91 8830784757</a><button class="btn" type="button" data-doc="resume">View resume</button><a class="btn" href="mailto:contacting.amol@gmail.com">contacting.amol@gmail.com</a><a class="btn" href="https://www.linkedin.com/in/amol-gode-26ba8321a/" target="_blank" rel="noopener">${icon("LinkedIn",16)}LinkedIn</a><a class="btn" href="https://github.com/AmolGode" target="_blank" rel="noopener">${icon("GitHub",16)}GitHub</a>`;
 document.getElementById("legend").innerHTML = `
   <a href="https://www.geeksforgeeks.org/profile/17amolgode" target="_blank" rel="noopener">${icon("GeeksforGeeks",22)}<span>GeeksforGeeks<small>17amolgode</small></span><span class="n">600+</span></a>
   <a href="https://leetcode.com/u/17amolgode" target="_blank" rel="noopener">${icon("LeetCode",22)}<span>LeetCode<small>17amolgode</small></span><span class="n">250+</span></a>`;
@@ -790,6 +807,31 @@ projects.forEach((p, pi) => {
 
 /* system design list */
 document.getElementById("hlist").innerHTML = systems.map(s => `<li><b>${s.b}</b><span>${s.s}</span></li>`).join("");
+
+/* in-page document viewer (resume, certificate) */
+(function () {
+  const docs = {
+    resume: { title: "Resume", id: "1wxsd0DRkB719KDPZ3ALgQgDKIZ7Y7tNL", download: true },
+    cert: { title: "Claude Certified Architect, Foundations", id: "1pjx0T1hpeb5wdRdvVzwnwutD-NZL7fnF", download: false }
+  };
+  const dlg = document.getElementById("docModal"), fr = document.getElementById("docFrame");
+  const dl = document.getElementById("dmDownload"), open = document.getElementById("dmOpen");
+  let opener = null;
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-doc]"); if (!b) return;
+    const d = docs[b.dataset.doc]; if (!d) return;
+    opener = b;
+    document.getElementById("dmTitle").textContent = d.title;
+    open.href = "https://drive.google.com/file/d/" + d.id + "/view";
+    dl.hidden = !d.download;
+    if (d.download) dl.href = "https://drive.google.com/uc?export=download&id=" + d.id;
+    fr.src = "https://drive.google.com/file/d/" + d.id + "/preview";
+    dlg.showModal();
+  });
+  document.getElementById("dmClose").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("close", () => { fr.src = "about:blank"; if (opener) opener.focus(); });
+})();
 
 /* intro video modal */
 (function () {
