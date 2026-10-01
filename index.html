@@ -245,6 +245,19 @@ dialog::backdrop{background:rgba(32,33,36,.6)}
   *{transition:none!important;animation:none!important}
 }
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CN16PYZWH"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-1CN16PYZWH');
+document.addEventListener('click',function(e){
+  var el=e.target.closest('a,button');if(!el)return;
+  var label=(el.innerText||el.getAttribute('aria-label')||el.title||'').trim().replace(/\s+/g,' ').slice(0,60);
+  var href=el.getAttribute('href')||'';
+  if(!label&&!href)return;
+  var sec=el.closest('section,footer,aside,header');
+  gtag('event','ui_click',{link_text:label,link_url:href.slice(0,150),section:sec?(sec.id||sec.tagName.toLowerCase()):'page'});
+});
+</script>
 </head>
 <body>
 <div class="app">
